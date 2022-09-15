@@ -1,0 +1,25 @@
+.intro {
+  width: min(90vw, 600px);
+  margin-inline: auto;
+}
+
+.intro__text--more {
+  display: none;
+}
+
+#more-label {
+  border: 1px solid blue;
+  border-radius: 30px;
+  padding: 10px;
+  :hover {
+    background-color: aqua;
+  }
+
+  // TODO: has doesn't work in firefox!
+  &:has(#more-checkbox:checked) {
+    border: 1px solid blue;
+    + .intro__text--more {
+      display: block;
+    }
+  }
+}

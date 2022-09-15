@@ -9,6 +9,8 @@
     <script src="./plotly.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./main.css">
+
 </head>
 
 <body>
@@ -21,48 +23,54 @@
 
             This page gives some interactive visualizations of beams under load using this result.
         </p>
-        <button class="intro__more-button">More Maths</button>
-        <p class="intro__text intro__text--more">
-            We can afford to be lazy with physical dimensions since the visualizations have no basis in physical
-            reality. <i>Don't do this in any serious engineering application.</i>
-            \(E\) and \(I\), relate to the beam cross section geometry and material properties. We can just set them to
-            1, making our equation
-            \[M = -\frac{d^2v}{dx^2}\]
-            This is a second order ordinary differential equation. \(M\) is a function of just \(x\), therefore it can
-            be solved using direct integration:
+        <label id="more-label"><input type="checkbox" id="more-checkbox">Show More Maths</label>
+        <div class="intro__text--more intro__text">
+            <p>
+                We can be lazy with physical dimensions since the visualizations have no basis in physical
+                reality. <i>Don't do this in any serious engineering application.</i><br />
+                \(E\) and \(I\), relate to the beam cross section geometry and material properties. We can just set them
+                to
+                1, making our equation
+                \[M = -\frac{d^2v}{dx^2}\]
+                This is a second order ordinary differential equation. \(M\) is a function of just \(x\), therefore it
+                can
+                be solved using direct integration:
 
-            \[v(x) = \int \int M dx dx\]
+                \[v(x) = \int \int M dx dx\]
 
-            For example, the cantilever beam in the first example has an internal moment distribution
-            \[M = F(x-L)\]
-            Integrating twice gives
-            \[v = F \left(\frac{x^3}{6} - \frac{Lx^2}{2} + C_1x+C_2\right)\]
-            Applying our two boundary conditions
-        <ol>
-            <li>when \(x=0, v=0\)</li>
-            <li>when \(x=0, v'=0\)</li>
-        </ol>
-        gives \(C_1=C_2=0\).<br />
-        Our final equation for v is then
-        \[v = \frac{Fx^2}{6}(x-3L)\]
-        which is what is used in the visualization.
-
-
-
-        </p>
+                For example, the cantilever beam in the first visualization has an internal moment distribution
+                \[M = F(x-L)\]
+                Integrating twice gives
+                \[v = F \left(\frac{x^3}{6} - \frac{Lx^2}{2} + C_1x+C_2\right)\]
+                Applying our two boundary conditions
+            <ol>
+                <li>when \(x=0, v=0\)</li>
+                <li>when \(x=0, v'=0\)</li>
+            </ol>
+            gives \(C_1=C_2=0\).<br />
+            Our final equation for v is then
+            \[v = \frac{Fx^2}{6}(x-3L)\]
+            which is what is used in the visualization.
+            </p>
+        </div>
     </div>
 
-    When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+    <h2>Cantilever Beam</h2>
+    <span>Force</span>
+    <input class="parameter-input" type="range" id="cantilever-force" value="24" min="0" max="100">
+    <output id="cantilever-forceOutput">24</output>
+    <div id="cantilever-graph" style="width:400px;height:200px;"></div>
+    <h2>Bridge</h2>
     <span>Location</span>
-    <input type="range" id="location" value="24" min="0" max="100">
-    <output id="locationOutput">24</output>
+    <input class="parameter-input" type="range" id="simple-location" value="24" min="0" max="100">
+    <output id="simple-locationOutput">24</output>
     <span>Weight</span>
-    <input type="range" id="force" value="24" min="0" max="10">
-    <output id="forceOutput">24</output>
+    <input class="parameter-input" type="range" id="simple-force" value="24" min="0" max="10">
+    <output id="simple-forceOutput">24</output>
+    <div id="simple-graph" style="width:600px;height:200px;"></div>
 
-    <div id="graph" style="width:600px;height:200px;"></div>
-    <script src="./main.js"></script>
+
+    <script type="module" src="./main.js"></script>
 
 </body>
 
