@@ -12,38 +12,58 @@ const calcVRight = (F, L, a, x) => {
   return term1 + term2 + term3;
 };
 
-calcVLeft = (F, L, a, x) => {
+const calcVLeft = (F, L, a, x) => {
   const term1 = -((F * (L - a)) / L) * (x ** 3 / 6);
 
   const term2 = constant2and0(F, L, a) * x;
 
   return term1 + term2;
 };
-
-xArr = [];
-deflectionArr = [];
-const F = 10;
-const L = 10;
-const a = 5;
-for (x = 0; x < L; x += L / 1000) {
-  xArr.push(x);
-  if (x < a) {
-    deflectionArr.push(-calcVLeft(F, L, a, x));
-  } else {
-    deflectionArr.push(-calcVRight(F, L, a, x));
+const calcAndPlot = (F, L, a) => {
+  xArr = [];
+  deflectionArr = [];
+  for (x = 0; x < L; x += L / 100) {
+    xArr.push(x);
+    if (x < a) {
+      deflectionArr.push(-calcVLeft(F, L, a, x));
+    } else {
+      deflectionArr.push(-calcVRight(F, L, a, x));
+    }
   }
-}
+  xArr.push(L);
+  deflectionArr.push(-calcVRight(F, L, a, L));
 
-TESTER = document.getElementById("tester");
-Plotly.newPlot(
-  TESTER,
-  [
+  graph = document.getElementById("graph");
+  Plotly.newPlot(
+    graph,
+    [
+      {
+        x: xArr,
+        y: deflectionArr,
+      },
+    ],
     {
-      x: xArr,
-      y: deflectionArr,
+      margin: { t: 0 },
+      xaxis: { range: [0, 100] },
+      yaxis: { range: [-220, 220] },
     },
-  ],
-  {
-    margin: { t: 0 },
-  }
-);
+    { staticPlot: true }
+  );
+};
+const locationInput = document.querySelector("#location");
+const forceInput = document.querySelector("#force");
+locationInput.addEventListener("input", (e) => {
+  document.querySelector("#locationOutput").innerHTML = e.target.value;
+  refreshValues();
+});
+forceInput.addEventListener("input", (e) => {
+  document.querySelector("#forceOutput").innerHTML = e.target.value;
+  refreshValues();
+});
+
+const refreshValues = () => {
+  const F = forceInput.value / 1000;
+  const a = locationInput.value;
+  L = 100;
+  calcAndPlot(F, L, a);
+};
