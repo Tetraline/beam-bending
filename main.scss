@@ -1,5 +1,6 @@
-.intro {
+body {
   width: min(90vw, 600px);
+  font-family: sans-serif;
   margin-inline: auto;
 }
 
@@ -11,15 +12,16 @@
   border: 1px solid blue;
   border-radius: 30px;
   padding: 10px;
-  :hover {
-    background-color: aqua;
+}
+#more-checkbox {
+  display: none;
+  &:checked + .intro__text--more {
+    display: block;
   }
+}
 
-  // TODO: has doesn't work in firefox!
-  &:has(#more-checkbox:checked) {
-    border: 1px solid blue;
-    + .intro__text--more {
-      display: block;
-    }
-  }
+#cantilever-graph,
+#simple-graph {
+  width: min(90vw, 500px);
+  height: min(50vw, 200px);
 }
