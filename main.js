@@ -32,7 +32,7 @@ const refreshValues = (type) => {
       console.error("Unknown type");
       break;
   }
-  //inputs.forEach((input) => {
-  //  console.log(input.value);
-  //});
 };
+
+refreshValues("simple");
+refreshValues("cantilever");

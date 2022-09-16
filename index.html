@@ -14,18 +14,19 @@
 </head>
 
 <body>
+    <h1>Engineering Visualizations</h1>
     <div class="intro">
         <p class="intro__text">
-
-            Euler–Bernoulli beam theory is a method for calculating the behavior of beams under load.
-            It gives us the differential equation relating beam deflection \(v\) to loads \(M\).
-            \[M = -EI \frac{d^2v}{dx^2}\]
-
             This page gives some interactive visualizations of beams under load using this result.
         </p>
-        <label id="more-label"><input type="checkbox" id="more-checkbox">Show More Maths</label>
+        <label for="more-checkbox" id="more-label">Show More Maths</label>
+        <input type="checkbox" id="more-checkbox" />
         <div class="intro__text--more intro__text">
             <p>
+                Euler–Bernoulli beam theory is a method for calculating the behavior of beams under load.
+                It gives us the differential equation relating beam deflection \(v\) to loads \(M\).
+                \[M = -EI \frac{d^2v}{dx^2}\]
+
                 We can be lazy with physical dimensions since the visualizations have no basis in physical
                 reality. <i>Don't do this in any serious engineering application.</i><br />
                 \(E\) and \(I\), relate to the beam cross section geometry and material properties. We can just set them
@@ -59,15 +60,15 @@
     <span>Force</span>
     <input class="parameter-input" type="range" id="cantilever-force" value="24" min="0" max="100">
     <output id="cantilever-forceOutput">24</output>
-    <div id="cantilever-graph" style="width:400px;height:200px;"></div>
+    <div id="cantilever-graph"></div>
     <h2>Bridge</h2>
     <span>Location</span>
     <input class="parameter-input" type="range" id="simple-location" value="24" min="0" max="100">
     <output id="simple-locationOutput">24</output>
     <span>Weight</span>
-    <input class="parameter-input" type="range" id="simple-force" value="24" min="0" max="10">
-    <output id="simple-forceOutput">24</output>
-    <div id="simple-graph" style="width:600px;height:200px;"></div>
+    <input class="parameter-input" type="range" id="simple-force" value="8" min="0" max="10">
+    <output id="simple-forceOutput">8</output>
+    <div id="simple-graph"></div>
 
 
     <script type="module" src="./main.js"></script>
