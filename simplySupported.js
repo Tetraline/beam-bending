@@ -45,8 +45,8 @@ const simpleCalcAndPlot = (F, L, a) => {
     ],
     {
       margin: { t: 0 },
-      xaxis: { range: [0, 100] },
-      yaxis: { range: [-220, 220] },
+      xaxis: { range: [0, 100], showticklabels: false },
+      yaxis: { range: [-220, 220], zeroline: false, showticklabels: false },
       annotations: [
         {
           x: a,

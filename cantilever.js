@@ -27,7 +27,6 @@ const cantileverCalcAndPlot = (F) => {
       yaxis: {
         range: [-40, 40],
         zeroline: false,
-        showgrid: true,
         showticklabels: false,
       },
       annotations: [
