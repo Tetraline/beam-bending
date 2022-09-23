@@ -1,6 +1,21 @@
-.intro {
+body {
   width: min(90vw, 600px);
+  font-family: sans-serif;
   margin-inline: auto;
+}
+
+img {
+  width: min(50vw, 300px);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .content-container {
+    flex-direction: row;
+  }
 }
 
 .intro__text--more {
@@ -12,12 +27,16 @@
   border-radius: 30px;
   padding: 10px;
 }
-#more-label :hover {
-  background-color: aqua;
+
+#more-checkbox {
+  display: none;
 }
-#more-label:has(#more-checkbox:checked) {
-  border: 1px solid blue;
-}
-#more-label:has(#more-checkbox:checked) + .intro__text--more {
+#more-checkbox:checked + .intro__text--more {
   display: block;
+}
+
+#cantilever-graph,
+#simple-graph {
+  width: min(80vw, 500px);
+  height: min(80vw, 200px);
 }

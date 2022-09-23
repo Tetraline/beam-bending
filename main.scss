@@ -4,6 +4,18 @@ body {
   margin-inline: auto;
 }
 
+img {
+  width: min(50vw, 300px);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
 .intro__text--more {
   display: none;
 }
@@ -22,6 +34,6 @@ body {
 
 #cantilever-graph,
 #simple-graph {
-  width: min(90vw, 500px);
-  height: min(50vw, 200px);
+  width: min(80vw, 500px);
+  height: min(80vw, 200px);
 }

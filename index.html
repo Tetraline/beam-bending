@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <h1>Engineering Visualizations</h1>
+    <h1>Beam Visualizations</h1>
     <div class="intro">
         <p class="intro__text">
-            This page gives some interactive visualizations of beams under load using this result.
+            This page gives some interactive visualizations of beams under load.
         </p>
         <label for="more-checkbox" id="more-label">Show More Maths</label>
         <input type="checkbox" id="more-checkbox" />
@@ -57,20 +57,33 @@
             gives \(C_1=C_2=0\).<br />
             Our final equation for \(v\) is then
             \[v = \frac{Fx^2}{6}(x-3L)\]
-            which is what is used in the visualization.
+            which is what is used in the visualization for the cantilever beam.
             </p>
         </div>
     </div>
 
     <h2>Cantilever Beam</h2>
+    <div class="content-container">
+        <p>The cantilever is a common type of structure where the beam is supported from one side. An example of this is
+            on
+            aircraft, where each wing has a supported end and a free end.</p>
+        <figure>
+            <img src="./aircraft.jpg" alt="A commercial jet airplane viewed from the front">
+            <figcaption>Airplane wings are cantilevered from a central support</figcaption>
+        </figure>
+    </div>
+    <h3>Visualization</h3>
     <span>Force</span>
     <input class="parameter-input" type="range" id="cantilever-force" value="24" min="0" max="100">
     <output id="cantilever-forceOutput">24</output>
     <div id="cantilever-graph"></div>
     <h2>Bridge</h2>
+    <p>Bridges are supported from both ends, and therefore deflect differently:</p>
+    <h3>Visualization</h3>
     <span>Location</span>
     <input class="parameter-input" type="range" id="simple-location" value="24" min="0" max="100">
     <output id="simple-locationOutput">24</output>
+    <br />
     <span>Weight</span>
     <input class="parameter-input" type="range" id="simple-force" value="8" min="0" max="10">
     <output id="simple-forceOutput">8</output>
