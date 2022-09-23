@@ -26,30 +26,36 @@
                 Euler–Bernoulli beam theory is a method for calculating the behavior of beams under load.
                 It gives us the differential equation relating beam deflection \(v\) to loads \(M\).
                 \[M = -EI \frac{d^2v}{dx^2}\]
+                Where
+            <ul>
+                <li>\(M\) is the internal moment distribution</li>
+                <li>\(v\) is the beam deflection</li>
+                <li>\(x\) is the location on the beam. x=0 is usually on the left.</li>
+            </ul>
 
-                We can be lazy with physical dimensions since the visualizations have no basis in physical
-                reality. <i>Don't do this in any serious engineering application.</i><br />
-                \(E\) and \(I\), relate to the beam cross section geometry and material properties. We can just set them
-                to
-                1, making our equation
-                \[M = -\frac{d^2v}{dx^2}\]
-                This is a second order ordinary differential equation. \(M\) is a function of just \(x\), therefore it
-                can
-                be solved using direct integration:
+            We can be lazy with physical dimensions since the visualizations have no basis in physical
+            reality. <i>Don't do this in any serious engineering application.</i><br />
+            \(E\) and \(I\), relate to the beam cross section geometry and material properties. We can just set them
+            to
+            1, making our equation
+            \[M = -\frac{d^2v}{dx^2}\]
+            This is a second order ordinary differential equation. \(M\) is a function of just \(x\), therefore it
+            can
+            be solved using direct integration:
 
-                \[v(x) = \int \int M dx dx\]
+            \[v(x) = \int \int M dx dx\]
 
-                For example, the cantilever beam in the first visualization has an internal moment distribution
-                \[M = F(x-L)\]
-                Integrating twice gives
-                \[v = F \left(\frac{x^3}{6} - \frac{Lx^2}{2} + C_1x+C_2\right)\]
-                Applying our two boundary conditions
+            For example, the cantilever beam in the first visualization has an internal moment distribution
+            \[M = F(x-L)\]
+            Integrating twice gives
+            \[v = F \left(\frac{x^3}{6} - \frac{Lx^2}{2} + C_1x+C_2\right)\]
+            Applying our two boundary conditions for the cantilever beam
             <ol>
                 <li>when \(x=0, v=0\)</li>
                 <li>when \(x=0, v'=0\)</li>
             </ol>
             gives \(C_1=C_2=0\).<br />
-            Our final equation for v is then
+            Our final equation for \(v\) is then
             \[v = \frac{Fx^2}{6}(x-3L)\]
             which is what is used in the visualization.
             </p>
